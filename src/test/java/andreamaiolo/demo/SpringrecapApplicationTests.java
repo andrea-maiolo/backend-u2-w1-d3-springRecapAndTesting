@@ -2,6 +2,8 @@ package andreamaiolo.demo;
 
 import andreamaiolo.demo.entities.Menu;
 import andreamaiolo.demo.entities.Pizzas;
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -10,7 +12,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class SpringrecapApplicationTests {
-    private final AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringrecapApplication.class);
+    private static AnnotationConfigApplicationContext ctx;
+
+    @BeforeAll
+    public static void setup() {
+        ctx = new AnnotationConfigApplicationContext(SpringrecapApplication.class);
+    }
+
+    @AfterAll
+    public static void tearDown() {
+        if (ctx != null) {
+            ctx.close();
+        }
+    }
 
     @Test
     void contextLoads() {
@@ -46,9 +60,4 @@ class SpringrecapApplicationTests {
         assertEquals(result, checkPrice, "should be the same");
     }
 
-
-    @Test
-    void closeCtx() {
-        ctx.close();
-    }
 }
