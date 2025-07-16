@@ -6,12 +6,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Order {
+    private static int orderIdCounter = 1;
     private Table table;
     private int numSeats;
     private OrderStatus status;
     private int startHour;
     private int orderId;
-    private int orderIdCounter;
     private double totalBill;
     private double coperto;
     private List<Food> completeOrder;
@@ -19,7 +19,7 @@ public class Order {
     public Order(Table table, int numSeats, double coperto) {
         this.numSeats = numSeats;
         this.table = table;
-        this.orderId = orderIdCounter + 1;
+        this.orderId = orderIdCounter;
         orderIdCounter += 1;
         this.startHour = 20;
         this.status = OrderStatus.INPROGRESS;

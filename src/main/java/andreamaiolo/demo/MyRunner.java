@@ -31,8 +31,8 @@ public class MyRunner implements CommandLineRunner {
         newOrder.addToOrder(menu.getAllPizzas().get(1));
         newOrder.addToOrder(menu.getAllDrinks().get(2));
         System.out.println(newOrder);
-//        Order no2 = new Order(this.table, 2, coperto);
-//        System.out.println(no2);
+        Order no2 = new Order(this.table, 2, coperto);
+        System.out.println(no2);
 
     }
 
