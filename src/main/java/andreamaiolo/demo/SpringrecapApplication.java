@@ -15,7 +15,8 @@ public class SpringrecapApplication {
 
         Menu m = ctx.getBean(Menu.class);
         System.out.println(m);
-        
+
+        ctx.close();
     }
 
 }

@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class SpringrecapApplicationTests {
-    AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringrecapApplication.class);
+    private final AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext(SpringrecapApplication.class);
 
     @Test
     void contextLoads() {
@@ -22,6 +22,13 @@ class SpringrecapApplicationTests {
         int b = 5;
         int result = a / b;
         assertEquals(3, result, "Should be 3");
+    }
+
+    @Test
+    void testExceptionThrown() {
+        assertThrows(ArithmeticException.class, () -> {
+            int result = 10 / 0;
+        });
     }
 
     @Test
@@ -39,12 +46,9 @@ class SpringrecapApplicationTests {
         assertEquals(result, checkPrice, "should be the same");
     }
 
-    @Test
-    void testExceptionThrown() {
-        assertThrows(ArithmeticException.class, () -> {
-            int result = 10 / 0;
-        });
-    }
 
-    
+    @Test
+    void closeCtx() {
+        ctx.close();
+    }
 }
