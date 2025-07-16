@@ -1,13 +1,11 @@
 package andreamaiolo.demo;
 
 import andreamaiolo.demo.entities.Drinks;
-import andreamaiolo.demo.entities.Menu;
 import andreamaiolo.demo.entities.Pizzas;
+import andreamaiolo.demo.entities.Table;
 import andreamaiolo.demo.entities.Toppings;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
-import java.util.List;
 
 @Configuration
 public class AppConfig {
@@ -85,9 +83,30 @@ public class AppConfig {
         return base;
     }
 
-    @Bean
-    public Menu getMenu(List<Pizzas> p, List<Toppings> t, List<Drinks> d) {
-        return new Menu(p, t, d);
 
+    @Bean
+    public Table getTable1() {
+        return new Table(1, 4);
     }
+
+    @Bean
+    public Table getTable2() {
+        return new Table(2, 4);
+    }
+
+    @Bean
+    public Table getTable3() {
+        return new Table(3, 6);
+    }
+
+    @Bean
+    public Table getTable4() {
+        return new Table(4, 2);
+    }
+
+    @Bean
+    public Table getTable5() {
+        return new Table(5, 8);
+    }
+
 }

@@ -1,7 +1,10 @@
 package andreamaiolo.demo.entities;
 
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
+@Component
 public class Menu {
     private List<Pizzas> allPizzas;
     private List<Toppings> allToppings;
